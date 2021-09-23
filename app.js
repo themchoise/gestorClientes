@@ -21,10 +21,9 @@ if (inicio()) {
 
     
 
-    do {
-        
+    do { 
             const [nombre, razonSocial, telefono] = cargaCliente();
-             if (nombre && razonSocial &&  telefono ){
+            if (nombre && razonSocial &&  telefono ){
             let altaCliente = new Cliente(nombre, razonSocial, telefono)
             listadoClientes.push(altaCliente)
                 }
@@ -35,6 +34,7 @@ if (inicio()) {
 }
 
 if (listadoClientes.length > 0) {
+    alert('Resultado por Consola')
     console.log('Su Listado de Clientes:');
     console.log(listadoClientes);
 }
