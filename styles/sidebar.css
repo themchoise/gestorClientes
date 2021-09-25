@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #f1f1f1;
+    background-color: #121212;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -11,13 +11,17 @@
   
   .sidebar a {
     display: block;
-    color: black;
+    color: white;
     padding: 16px;
     text-decoration: none;
+    font-family:'Courier New', Courier, monospace;
+    font-size: large;
+    cursor: pointer;
+    
   }
    
   .sidebar a.active {
-    background-color: #04AA6D;
+    background-color: #298870;
     color: white;
   }
   
@@ -29,7 +33,9 @@
   div.content {
     margin-left: 200px;
     padding: 1px 16px;
-    height: 1000px;
+    height: 100%;
+    border-bottom: 2px solid brown;
+    
   }
   
   @media screen and (max-width: 700px) {
