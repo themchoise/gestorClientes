@@ -14,6 +14,7 @@ let cargaHtml = () => {
         let icon = document.createElement('i')
         let key = localStorage.key(i);
         let valor = localStorage.getItem(key)
+        icon.className='far fa-address-card fa-1x'
         elementoLista.innerHTML = `ID=${key}, ${valor}`
         elementoLista.setAttribute("Key", `${key}`)
         elementoLista.appendChild(icon)
