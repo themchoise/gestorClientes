@@ -4,7 +4,7 @@ const searchInput = document.querySelector('#mainSearch');
 const btnSearch = document.querySelector('#gotoSearch');
 const btnClearSearch = document.querySelector('#clearSearch');
 
-let cargaHtml = () => {
+let loadHtml = () => {
 
 
     //Vaciado de la lista, y la vuelvo a crear con los nuevos clientes

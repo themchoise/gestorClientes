@@ -1,8 +1,8 @@
-let listadoClientes = [];
+let clientList = [];
 let numbers = '^[0-9]+$';
 
 if (localStorage.length > 0) {
-    cargaHtml();
+    loadHtml();
 }
 
 frmAddClient.addEventListener('submit', (event) => {
@@ -13,10 +13,10 @@ frmAddClient.addEventListener('submit', (event) => {
     let emailInpData = frmAddClient.children[7].value;
 
     let newCliente = new Cliente(rzInpData,cuitInpData,telInpData,emailInpData);
-    listadoClientes.push(newCliente)
+    clientList.push(newCliente)
 
-   if (listadoClientes.length > 0) {
-   for (const cliente of listadoClientes){
+   if (clientList.length > 0) {
+   for (const cliente of clientList){
     const {id} = cliente
     localStorage.setItem(id,JSON.stringify(cliente))
     }
