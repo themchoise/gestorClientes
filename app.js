@@ -5,34 +5,48 @@ if (localStorage.length > 0) {
     cargaHtml();
 }
 
-const altaCliente = () => {
+frmAddClient.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let rzInpData = frmAddClient.children[1].value;
+    let cuitInpData = Number(frmAddClient.children[3].value);
+    let telInpData = Number(frmAddClient.children[5].value);
+    let emailInpData = frmAddClient.children[7].value;
 
-    if (inicio()) {
+    let newCliente = new Cliente(rzInpData,cuitInpData,telInpData,emailInpData);
+    listadoClientes.push(newCliente)
 
-        do {
-            const [nombre, razonSocial, telefono] = cargaCliente();
-            if (nombre && razonSocial && telefono) {
-                let altaCliente = new Cliente(nombre, razonSocial, telefono);
-                listadoClientes.push(altaCliente);
-            }
-
-        } while (continua());
-
+   if (listadoClientes.length > 0) {
+   for (const cliente of listadoClientes){
+    const {id} = cliente
+    localStorage.setItem(id,JSON.stringify(cliente))
     }
-
-    if (listadoClientes.length > 0) {
-        console.log(listadoClientes)
-
-        for (let i = 0; i < listadoClientes.length; i++) {
-            const element = listadoClientes[i];
-            let { nombre, id, razonsocial, telefono } = element
-            localStorage.setItem(id, `Cliente: ${nombre},${razonsocial},${telefono}`)
-
+    }
+        let timerInterval
+        Swal.fire({
+        title: 'Procesando',
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {     
+            }, 100)
+        },
+        willClose: () => {
+            clearInterval(timerInterval)
         }
-        listadoClientes = [];
-        cargaHtml();
+        }).then((result) => {  
+        if (result.dismiss === Swal.DismissReason.timer) {
+            Swal.fire(
+               'Datos Almacenados con Exito'
+              )
+              setTimeout(() => {
+                  Swal.close();
+                  modal.style.display = "none";
+                  cargaHtml();
+                  //formClean();
+              }, 1500);
+        }
+        })
+ event.stopPropagation()
+})
 
-
-    }
-
-}
