@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #121212;
+    background-color: #0c0c0c;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -21,12 +21,12 @@
   }
    
   .sidebar a.active {
-    background-color: #298870;
+    background-color: #202945;
     color: white;
   }
   
   .sidebar a:hover:not(.active) {
-    background-color: #555;
+    background-color: #294599;
     color: white;
   }
   
@@ -34,8 +34,8 @@
     margin-left: 200px;
     padding: 1px 16px;
     height: 100%;
-    border-bottom: 2px solid brown;
-    
+    background-color: #2c3e4b;
+    --box-shadow: 5px 10px 8px 10px #888888;
   }
   
   @media screen and (max-width: 700px) {

@@ -3,63 +3,67 @@ const cardFather = document.querySelector('#cardContainer');
 const searchInput = document.querySelector('#mainSearch');
 const btnSearch = document.querySelector('#gotoSearch');
 const btnClearSearch = document.querySelector('#clearSearch');
+const tableDashClient = $('#clientDashTable')
+
+
+
 
 let loadHtml = () => {
-
-
+    //tableDashClient.empty();
+    $('#clientDashTable').DataTable().clear()
+    $('#clientDashTable').DataTable().destroy();
+   
+    //$('#clientDashTable td').remove()
+    
     //Vaciado de la lista, y la vuelvo a crear con los nuevos clientes
-    cardFather.innerHTML = ''
+    
 
     //Iterando el LocalStorage
     for (let i = 0; i < localStorage.length; i++) {
-        let newH1 = document.createElement('h4');
-        let newDiv = document.createElement('div');
-        let newP = document.createElement('p');
-
         let key = localStorage.key(i);
         let dataLocalStorage = localStorage.getItem(key)
+
         dataLocalStorage = JSON.parse(dataLocalStorage)
         const { razonsocial, telefono, email, date, cuit } = dataLocalStorage
+        tableDashClient.append(
+         `<tr id='clientid_${key}' key=${key} class='animate__animated '>`
+        +'<td>'+key+'</td>' 
+        +'<td>'+razonsocial+'</td>' 
+        +'<td>'+cuit+'</td>' 
+        +'<td>'+telefono+'</td>' 
+        +'<td>'+email+'</td>' 
+        +'<td>'+date+'</td>' 
+        +'<td>'+'0'+'</td>' 
+        +'<td>'+'<i class="fas fa-edit pointer" title="editar"></i>'+'</td>' 
+        +'<td>'+`<i id='client_erase' class="fas fa-trash pointer  " title="borrar"></i>`+'</td>' 
+        
 
-        newH1.innerHTML = razonsocial;
-        newDiv.className = 'clientCard animate__animated animate__fadeIn';
-        newDiv.innerHTML = `
-        <h4>Razon Social: ${razonsocial}</h4>
-        <p>CUIT: ${cuit}</p>
-        <p>Telefono: ${telefono}</p>
-        <p>E-mail: ${email}</p>
-        <p>Alta: ${date}</p>`
-        cardFather.appendChild(newDiv);
-
-
-
-        /*
-        let elementoLista = document.createElement('li');
-        let icon = document.createElement('i')
-        let key = localStorage.key(i);
-        let valor = localStorage.getItem(key)
-        icon.className='far fa-address-card fa-1x'
-        elementoLista.innerHTML = `ID=${key}, ${valor}`
-        elementoLista.setAttribute("Key", `${key}`)
-        elementoLista.appendChild(icon)
-        elementoLista.className = "animate__animated animate__fadeIn"
-        ulClientes.appendChild(elementoLista);
-        */
+        +'</tr>'
+       )
 
     }
-    //;
-    //Ordenando el listado
-    /*
-    function ordenarLista() {
-        Array.from(listado)
-            .sort((a, b) => a.textContent.localeCompare(b.textContent))         
-            .forEach(resultado => 
-                ulClientes.appendChild(resultado)
-                )};
 
-     ordenarLista();
-     */
+    $(document).ready( function () {
+        
+
+        $('#clientDashTable').DataTable({
+            "searching": false,
+            "paging": false,
+            "info": false,
+            "language": {
+                "zeroRecords": "Sin Datos para mostrar",
+                
+               
+            }
+          });
+    } );
+    
+   
+
 }
+
+
+
 
 
 let formClean = () => {
@@ -96,6 +100,34 @@ btnClearSearch.addEventListener('click', () => {
     searchInput.value = '';
     search('');
 })
+
+////////BORRADO DE CLIENTES //////////
+$( document ).ready( function() {
+   
+    let tabla = $('#clientDashTable')
+    tabla[0].onclick = function(event) {
+    let td = event.target.closest("#client_erase"); // (1)
+    
+    if (td) {
+       
+    let row = td.parentNode.parentNode ;
+    console.log(row)
+    let keyInStorageRow =  row.getAttribute('key')
+     row.remove();
+     
+     removeItem(keyInStorageRow)   
+    loadHtml() 
+    
+    event.stopPropagation()
+    }
+    event.stopPropagation()
+  }
+
+})
+
+const removeItem = (key) => {
+    localStorage.removeItem(key);  
+}
 
 
 

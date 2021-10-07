@@ -1,9 +1,12 @@
 let clientList = [];
 let numbers = '^[0-9]+$';
 
-if (localStorage.length > 0) {
-    loadHtml();
-}
+
+loadHtml();
+
+
+btnDashBoard.onclick = () => { loadHtml() }
+
 
 frmAddClient.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -42,7 +45,10 @@ frmAddClient.addEventListener('submit', (event) => {
               setTimeout(() => {
                   Swal.close();
                   modal.style.display = "none";
-                  cargaHtml();
+                  loadHtml();
+
+
+                  
                   //formClean();
               }, 1500);
         }
