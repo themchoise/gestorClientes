@@ -7,7 +7,7 @@ let day = date.getDate();
 
 let dateConstructor = (year, month, day) => {
     let dateResult = `${day}-${month}-${year}`
-    console.log(dateResult)
+    
     return dateResult
 }
 
@@ -30,10 +30,28 @@ class Cliente {
             this.telefono = telefonoCliente,
             this.email = emailCliente,
             this.date = dateConstructor(year, month, day)
+            this.balance = 0
         this.id = ++Cliente.contadorCliente;
     }
 
+    
 
 
+
+}
+
+
+class SalesRegister {
+
+    constructor(saleid, company,  product, amount, price) {
+
+            this.saleid = saleid,
+            this.company = company,
+            this.product = product,
+            this.amount = amount,
+            this.price = price,
+            this.date = dateConstructor(year, month, day)
+      }
+    
 }
 

@@ -1,30 +1,45 @@
-const frmAddClient = document.querySelector('#frmAddClient')
-const cardFather = document.querySelector('#cardContainer');
-const searchInput = document.querySelector('#mainSearch');
-const btnSearch = document.querySelector('#gotoSearch');
-const btnClearSearch = document.querySelector('#clearSearch');
-const tableDashClient = $('#clientDashTable')
+const    frmAddClient = document.querySelector('#frmAddClient')
+        ,frmSalesClient = document.querySelector('#frmSalesClient')
+        ,cardFather = document.querySelector('#cardContainer')
+        ,searchInput = document.querySelector('#mainSearch')
+        ,btnSearch = document.querySelector('#gotoSearch')
+        ,btnClearSearch = document.querySelector('#clearSearch')
+        ,tableDashClient = $('#clientDashTable');
 
 
-
+let fnStartForm = () => {
+    $('#frmAddClient').append(`
+     <div class="center">
+     <button type="submit"> Guardar </button>    
+     </div> `)
+    
+    
+    };
+    
+    let fnStartFormSales = () => {
+        $('#frmSalesClient').append(`
+        <div class="center">
+        <button type="submit"> Guardar </button>    
+        </div> `)
+    };
+    
+    
 
 let loadHtml = () => {
-    //tableDashClient.empty();
-    $('#clientDashTable').DataTable().clear()
+    $('#clientDashTable').DataTable().clear();
     $('#clientDashTable').DataTable().destroy();
-   
-    //$('#clientDashTable td').remove()
-    
+      
     //Vaciado de la lista, y la vuelvo a crear con los nuevos clientes
-    
 
     //Iterando el LocalStorage
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
+        if (  !(key.includes('Sale') ) ) 
+        {
         let dataLocalStorage = localStorage.getItem(key)
 
         dataLocalStorage = JSON.parse(dataLocalStorage)
-        const { razonsocial, telefono, email, date, cuit } = dataLocalStorage
+        const { razonsocial, telefono, email, date, cuit, balance } = dataLocalStorage
         tableDashClient.append(
          `<tr id='clientid_${key}' key=${key} class='animate__animated '>`
         +'<td>'+key+'</td>' 
@@ -33,7 +48,7 @@ let loadHtml = () => {
         +'<td>'+telefono+'</td>' 
         +'<td>'+email+'</td>' 
         +'<td>'+date+'</td>' 
-        +'<td>'+'0'+'</td>' 
+        +'<td>'+balance+'</td>' 
         +'<td>'+'<i class="fas fa-edit pointer" title="editar"></i>'+'</td>' 
         +'<td>'+`<i id='client_erase' class="fas fa-trash pointer  " title="borrar"></i>`+'</td>' 
         
@@ -42,7 +57,7 @@ let loadHtml = () => {
        )
 
     }
-
+    }
     $(document).ready( function () {
         
 
@@ -57,14 +72,8 @@ let loadHtml = () => {
             }
           });
     } );
-    
-   
-
+  
 }
-
-
-
-
 
 let formClean = () => {
     for (let i = 0; i < frmAddClient.children.length; i++) {
@@ -73,12 +82,9 @@ let formClean = () => {
     }
 }
 
-
 let search = (findText) => {
     findText.toLowerCase();
-
     let cards = document.getElementsByClassName('clientCard');
-
     for (let i = 0; i < cards.length; i++) {
         const element = cards[i];
         let children = element.children[0].textContent;
@@ -111,7 +117,7 @@ $( document ).ready( function() {
     if (td) {
        
     let row = td.parentNode.parentNode ;
-    console.log(row)
+    
     let keyInStorageRow =  row.getAttribute('key')
      row.remove();
      
@@ -131,3 +137,20 @@ const removeItem = (key) => {
 
 
 
+const hideAnotherForms = (FormTrue) => {
+
+    let existingForms = document.getElementsByTagName('form');
+    for (let i = 0; i < existingForms.length; i++) {
+        const idForms = existingForms[i];
+        if ( idForms!==FormTrue ){
+            existingForms[i].style.display='none'
+        }
+        else{
+            existingForms[i].style.display='block'
+        }
+
+        
+        
+    }
+
+}

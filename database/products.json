@@ -1,0 +1,22 @@
+ [
+                {
+                    "Producto": "Libre", 
+                    "Tipo": "Muzzarrella",
+                    "Peso": 1,
+                    "Unidad": "KG"
+                    
+                },
+                {
+                    "Producto": "Cilindro", 
+                    "Tipo": "Muzzarrella",
+                    "Peso": 5,
+                    "Unidad": "KG"
+                },
+                {
+                    "Producto": "Bolsa", 
+                    "Tipo": "Muzzarrella",
+                    "Peso": 25,
+                    "Unidad": "KG"
+                    
+                }
+ ]

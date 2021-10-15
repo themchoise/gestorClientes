@@ -19,12 +19,12 @@
 
 <body>
 
-
+    
     <!-- The sidebar -->
     <div class="sidebar">
         <a class="active" id="btnDashBoard" title="DashBoard" alt="">DashBoard </a>
         <a id="btnNewClient" title="Agregar nuevo cliente" alt="">+Cliente </a>
-        <a class="" href="#home">+Venta</a>
+        <a id="btnSale"  class="" href="#home">+Venta</a>
         <a href="#news">Clientes</a>
         <a href="#contact">Estadisticas</a>
 
@@ -66,42 +66,34 @@
                 <div class="modal-header">
                     <span id="CloseModal" class="close">&times;</span>
 
-                    <h2>Nuevo Cliente</h2>
+                    <h2 id="titleModal"></h2>
                 </div>
-                <div class="modal-body">
+              
 
 
-                    <form id=frmAddClient>
-
-                            <label for="rasoID">Razon Social: </label>
-                            <input type="text" value="test1" name="razonSocial" id="inpRSocial" required="true"
-                                placeholder="Razon Social" required />
-                            <label for="rasoID">Cuit: </label>
-                            <input type="number" value=123 name="cuit" id="inpCuit" required="true"
-                                placeholder="Cuit Social" required />
-
-                            <label for="rasoID">Telefono </label>
-                            <input type="number" value=123 name="tel" id="inpTel" placeholder="Telefono" required />
-
-                            <label for="rasoID">E-Mail </label>
-                            <input type="email" value="a@a.com" name="email" id="inpEmail" placeholder="E-Mail" required />
-
-                                <div class="center">
-                                <button type="submit"> Guardar </button>
-                                
-                                </div>
+                    <form id=frmAddClient style="display:none">
                     </form>
-                </div>
+
+                    <form id=frmSalesClient style="display:none">
+                    </form>
+
+              
             </div>
         </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js" integrity="sha256-sq9BgeqJAlCLfjfAO+2diFGt5O8aIYNrds+yhlpFnvg=" crossorigin="anonymous"></script>
+<script src="./libs/sweetalert2.all.min.js"></script>
 <script src="./libs/jquery-3.6.0.min.js"></script>
 <script src="./libs/jquery.dataTables.min.js"></script>
+<script src="./database/products.json"></script>
 <script src="./js/functions.js"></script>
 <script src="./js/class.js"></script>
 <script src="./js/app.js"></script>
 <script src="./js/modal.js"></script>
+<script src="./js/modalCreator.js"></script>
+<script src="./js/addClient.js"></script>
+<script src="./js/products.js"></script>
+<script src="./js/salesClient.js"></script>
+<script src="./js/SwalSaveData.js"></script>
 
 
 </body>
