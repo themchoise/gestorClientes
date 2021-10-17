@@ -14,31 +14,64 @@ btnSale.onclick = function () {
   modalTitle.innerHTML = 'Nueva Venta'
 
   $('#frmSalesClient').prepend(` 
-    
-    <select name="clients" id="client_list">
-    <option value="-1" selected>Escoger Cliente</option>
-    </select>
   
-    <select name="products" id="products_list">
-    <option value="-1" selected>Escoger Producto</option>
-    </select>
 
-    <input id="inpAmount"   type="number" style=display: none; placeholder="Cantidad">
-    <p class="resultAmount" id="saleInformation"></p>
+<div class="center">
+  <select name="clients" id="client_list"  class="selectClient center">
+  <option value="-1" selected>Escoger Cliente</option>
+  </select>
+  </div>
+
   
+  <div id="divProductList" class="center mt-15" style=display: none;>
+
+        <select name="products"  id="products_list"  class="selectClient center">
+        <option value="-1" selected>Escoger Producto</option>
+        </select>
+
+
+    </div>
+
+    
+
+    <div id="divAmount" autocomplete="off" class="center inptModif mt-15" style=display:none;>
+    
+    <input id="inpAmount" autocomplete="off"   type="number"  placeholder="Ingrese Cantidad">
+    
+        </div>
+
+        <div id="divSalesRes"  class="salesRes" style=display:none;>
+        <p class="resultAmount"  id="saleInformation"></p></div>
+        </div>
         `)
 
-  $('#inpAmount').hide();
-  $('#saleInformation').hide();
+  $('#divProductList').hide();
+  $('#divAmount').hide();
+  $('#divSalesRes').hide();
+  
   populateSelectProcut();
   populateSelectClient();
 
   modal.style.display = "block";
+  $('#client_list').change(function () {
+   if (Number($(this).children("option:selected").val()) !== -1  )
+   {
+    //$('#divProductList').show();
+    $('#divProductList').slideDown("fast");
+   }else if 
+
+         (Number($(this).children("option:selected").val()) == -1)
+         {
+           console.log('here')
+          $('#divProductList').hide();
+         }
+   });
+
 
   $('#products_list').change(function () {
     selectedOptionProduct = Number($(this).children("option:selected").val());
     selectedOptionCompany = Number($('#client_list').children("option:selected").val());
-    selectedOptionProduct !== -1 ? ($('#inpAmount').show()) : null;
+    selectedOptionProduct !== -1 ? ($('#divAmount').slideDown()) : null;
     if (selectedOptionProduct !== -1 && selectedOptionCompany !== -1) {
       selectedOptionCompany.toString();
       companySelectedInStorage = localStorage.getItem(selectedOptionCompany);
@@ -47,8 +80,9 @@ btnSale.onclick = function () {
       let productSelected = products[selectedOptionProduct];
       $('#inpAmount').keyup(function () {
         resultSale = (Number(productSelected.Valor) * Number($(this).val()))
-        $('#saleInformation').show();
-        $('#saleInformation').text(`Resumen de su venta: ${productSelected.Producto} x ${Number($(this).val())} Total: ${resultSale}`)
+        $('.btnSubSales').slideDown("fast");
+        $('#divSalesRes').fadeIn("slow")
+        $('#saleInformation').text(`Resumen de su venta: ${productSelected.Producto} x ${Number($(this).val())} Total: $${resultSale}`)
 
 
 

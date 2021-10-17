@@ -1,6 +1,7 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal {
+  
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -22,13 +23,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: #fefefe;
   margin: auto;
   padding: 0;
-  border: 1px solid #888;
+  border: none;
   width: 40%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  
+  --box-shadow: 0 0px 0px 0 rgb(255, 255, 255),0 0px 5px 0 rgba(255, 255, 255);
+  --box-shadow: #fefefe;
   -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
+  -webkit-animation-duration: 0.7s;
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.7s
 }
 
 

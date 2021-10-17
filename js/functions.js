@@ -4,6 +4,7 @@ const    frmAddClient = document.querySelector('#frmAddClient')
         ,searchInput = document.querySelector('#mainSearch')
         ,btnSearch = document.querySelector('#gotoSearch')
         ,btnClearSearch = document.querySelector('#clearSearch')
+        ,letters =/^[a-zA-Z]+$/
         ,tableDashClient = $('#clientDashTable');
 
 
@@ -19,7 +20,7 @@ let fnStartForm = () => {
     let fnStartFormSales = () => {
         $('#frmSalesClient').append(`
         <div class="center">
-        <button type="submit"> Guardar </button>    
+        <button type="submit" class="btnSubSales"> Procesar Venta </button>    
         </div> `)
     };
     
@@ -42,7 +43,7 @@ let loadHtml = () => {
         const { razonsocial, telefono, email, date, cuit, balance } = dataLocalStorage
         tableDashClient.append(
          `<tr id='clientid_${key}' key=${key} class='animate__animated '>`
-        +'<td>'+key+'</td>' 
+        
         +'<td>'+razonsocial+'</td>' 
         +'<td>'+cuit+'</td>' 
         +'<td>'+telefono+'</td>' 
@@ -83,6 +84,7 @@ let formClean = () => {
 }
 
 let search = (findText) => {
+    
     findText.toLowerCase();
     let cards = document.getElementsByClassName('clientCard');
     for (let i = 0; i < cards.length; i++) {
@@ -93,19 +95,21 @@ let search = (findText) => {
     }
 }
 
+$('#mainSearch').keyup(function(e){ 
+    let searchText= e.target.value.toLowerCase()
+    
+    
 
-btnSearch.addEventListener('click', () => {
-    let searchText = searchInput.value;
-    searchText = searchText.toLowerCase();
-    search(searchText);
+    
+    $("#tableBodyClientDashTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1)
+        
+    })
+    
 
 })
 
 
-btnClearSearch.addEventListener('click', () => {
-    searchInput.value = '';
-    search('');
-})
 
 ////////BORRADO DE CLIENTES //////////
 $( document ).ready( function() {

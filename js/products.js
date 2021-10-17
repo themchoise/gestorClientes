@@ -5,6 +5,7 @@ const products = [
         "Tipo": "Muzzarrella",
         "Peso": 1,
         "Unidad": "KG",
+        "img": "./image/free.png",
         "Valor": 400
         
     },
