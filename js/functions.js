@@ -40,7 +40,7 @@ let loadHtml = () => {
         let dataLocalStorage = localStorage.getItem(key)
 
         dataLocalStorage = JSON.parse(dataLocalStorage)
-        const { razonsocial, telefono, email, date, cuit, balance } = dataLocalStorage
+        const { razonsocial, telefono, email, date, cuit, balance, monto, deuda } = dataLocalStorage
         tableDashClient.append(
          `<tr id='clientid_${key}' key=${key} class='animate__animated '>`
         
@@ -49,7 +49,9 @@ let loadHtml = () => {
         +'<td>'+telefono+'</td>' 
         +'<td>'+email+'</td>' 
         +'<td>'+date+'</td>' 
-        +'<td>'+balance+'</td>' 
+        +'<td>'+'$ ' +balance+'</td>' 
+        +'<td>'+'$ ' +deuda+'</td>' 
+        +'<td>'+'$ ' +monto+'</td>' 
         +'<td>'+'<i class="fas fa-edit pointer" title="editar"></i>'+'</td>' 
         +'<td>'+`<i id='client_erase' class="fas fa-trash pointer  " title="borrar"></i>`+'</td>' 
         
@@ -97,16 +99,11 @@ let search = (findText) => {
 
 $('#mainSearch').keyup(function(e){ 
     let searchText= e.target.value.toLowerCase()
-    
-    
 
-    
     $("#tableBodyClientDashTable tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1)
-        
+        $(this).toggle( $(this).text().toLowerCase().indexOf(searchText) > -1)  
     })
     
-
 })
 
 

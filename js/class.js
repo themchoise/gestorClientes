@@ -30,6 +30,8 @@ class Cliente {
             this.telefono = telefonoCliente,
             this.email = emailCliente,
             this.date = dateConstructor(year, month, day)
+            this.monto = 0
+            this.deuda = 0
             this.balance = 0
         this.id = ++Cliente.contadorCliente;
     }

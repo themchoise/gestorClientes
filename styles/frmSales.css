@@ -4,6 +4,7 @@
 }
 
 
+
 .btnSubSales{
     cursor: pointer;
     background: transparent;
@@ -14,6 +15,13 @@
     width: 110px;
     height: 30px;
     display: none;
+
+}
+
+.disabledSubmit{
+    cursor: not-allowed;
+    background-color: rgb(134, 141, 153);
+    color: tomato;
 
 }
 
@@ -75,7 +83,7 @@
     width: 250px;
 }
 
-.inptModif > input{
+.inputSAle{
 
     display: block;
     color: white;
@@ -88,6 +96,29 @@
     width: 250px !important;
 
 }
+
+.inputPayment{
+    
+    display: block;
+    color: white;
+    text-align:center;
+    background: #202945;
+    border: none;
+    font-size: 14px;
+    height: 40px;
+    padding: 0px;
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 150px !important;
+}
+
+.inptModif > label{
+    cursor: default;
+   margin-top: 15px;
+    color: white;
+   
+}
+
 
 .mt-15{
     margin-top: 15px;

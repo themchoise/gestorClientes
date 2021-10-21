@@ -17,7 +17,7 @@ let emptyForm = () => {
     for (let product of products){
         
          $('#products_list').append(
-             `<option value="${product.ID-1}" Key="${product.ID}"> ${product.Producto}</option>`
+             `<option value="${product.ID-1}" Key="${product.ID}"> ${product.Producto}      $${product.Valor}/U </option>`
    )
 
     }

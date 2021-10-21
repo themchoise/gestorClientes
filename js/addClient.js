@@ -8,7 +8,7 @@ btnAddClient.onclick = function () {
     modalTitle.innerHTML='Nuevo Cliente'
     emptyForm();
     $('#frmAddClient').prepend(` 
-    
+
     <label for="rasoID">Razon Social: </label>
     <input class="inputModalGreen" type="text"  name="razonSocial" id="inpRSocial" required="true"
         placeholder="Razon Social" required />
