@@ -2,6 +2,8 @@ let numbers = '^[0-9]+$';
 let clientList = [];
 
 btnAddClient.onclick = function () {
+
+   
     hideAnotherForms('frmAddClient')
     frmAddClient.style.display='block'
     

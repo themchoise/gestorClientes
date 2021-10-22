@@ -12,6 +12,8 @@ let selectedOptionProduct
   , weightPer = 0;
 
 btnSale.onclick = function () {
+  $('#dibsub2').fadeOut("fast")
+        $('#dibsub1').fadeIn("fast")
   hideAnotherForms('frmSalesClient');
   frmSalesClient.style.display = 'block'
   emptyForm();

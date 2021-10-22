@@ -27,6 +27,8 @@ let fnStartForm = () => {
     
 
 let loadHtml = () => {
+    $('#dibsub2').fadeOut("fast")
+    $('#dibsub1').fadeIn("fast")
     $('#clientDashTable').DataTable().clear();
     $('#clientDashTable').DataTable().destroy();
       
