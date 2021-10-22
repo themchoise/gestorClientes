@@ -12,7 +12,7 @@ btnProdudctList.onclick = () => {
     $('#dibsub2').append(`<div id="mainDivPr"></div>`)
 
     for (let product of products){
-        console.log(product)
+        
 
         $('#mainDivPr').append(`
         <div class="cardContainer">
@@ -34,14 +34,16 @@ btnProdudctList.onclick = () => {
 
 
 }
-
+/*
 sidebar.onclick = (e) => {
 aElement = e.target.closest('a')
-    if (aElement.id !== "btnProdudctList")
+    if (aElement.id !== "btnProdudctList"  )
     {
-        $('#dibsub1').fadeIn("fast")
         $('#dibsub2').fadeOut("fast")
+        $('#dibsub1').fadeIn("fast")
+     
     }    
 }
+*/
 
 
