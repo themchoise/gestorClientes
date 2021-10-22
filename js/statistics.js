@@ -38,7 +38,7 @@ let total = numeros.reduce((a, b) => a + b, 0);
 
           })
               let totalAmount = k.reduce((a, b) => a + b, 0);
-    console.log(totalAmount)
+    
 
     $('#dibsub2').empty();
     $('#dibsub1').slideUp("fast");
