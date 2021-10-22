@@ -2,7 +2,8 @@ let numbers = '^[0-9]+$';
 let clientList = [];
 
 btnAddClient.onclick = function () {
-
+    $('#dibsub2').fadeOut("fast")
+        $('#dibsub1').fadeIn("fast")
    
     hideAnotherForms('frmAddClient')
     frmAddClient.style.display='block'
