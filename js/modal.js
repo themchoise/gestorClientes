@@ -1,13 +1,12 @@
 // Get the modal
-let modal = document.getElementById("myModal");
-let fromChangeModal = document.getElementById("frmAddClient");
-let spanCloseModal = document.getElementById('CloseModal');
-let modalTitle = document.getElementById('titleModal');
+let  modal = document.getElementById("myModal")
+    ,fromChangeModal = document.getElementById("frmAddClient")
+    ,spanCloseModal = document.getElementById('CloseModal')
+    ,modalTitle = document.getElementById('titleModal')
+    ,btnAddClient = document.getElementById("btnNewClient")
+    ,btnSale = document.getElementById("btnSale");
 
-let btnAddClient = document.getElementById("btnNewClient");
-let btnSale = document.getElementById("btnSale");
-
-
+//MANEJO DEL CIERRE DEL MODAL
 spanCloseModal.onclick = function (e) {
   frmAddClient.style.display='none'
   frmSalesClient.style.display='none'
@@ -17,14 +16,3 @@ spanCloseModal.onclick = function (e) {
   e.stopPropagation()
 }
 
-
-/*
-
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "block";
-  }
-
-}
-
-*/

@@ -8,7 +8,29 @@
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
 }
+.color{
+    border-left: solid 2px royalblue;
+}
+.color > i {
+    cursor: pointer;
+    color: rebeccapurple ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.color > label {
+    cursor: default;
+    color: aliceblue !important;
+    font-size: 25px !important;
+}
 
+.color > button{
+    background: transparent;
+    border: none;
+    color: rebeccapurple ;
+    cursor: pointer;
+}
 
 #mainDivPr{
     display: flex;
@@ -22,19 +44,63 @@
     
 }
 
-.cardContainer{
-    background-color: #202945;
-    padding: 0.5px;
-    text-align: center;
-    border-radius: 15px;
+
+
+
+.containerNoBs{
+    display: flex;
+    
     margin-bottom: 15px;
-    width: 220px;
-    height: 250px;
-    color: white;
-    margin-left: 35px;
-    transition: transform .4s;
 }
 
 
+.column{
+    padding: 15px;
+    width: auto;
+ 
+    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+.column input{
+    background-color: #313c5e;
+    border: none;
+    color: white;
+    justify-content: flex-start;
+    text-align: start;
+    align-items: flex-start;
+    width: 100px;
+    margin-left: 30px;
+    margin-top: 2px;
+    
+}
 
+.column label{
+    width: 70px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+    text-align: start;
+    cursor: default;
+}
 
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    
+}
+
+.col{
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+    text-align: start;
+}
+
+.sensitiveDivisor{
+    opacity: 0.2;
+    width: auto;
+    margin-bottom: 15px;
+}

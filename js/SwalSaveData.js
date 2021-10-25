@@ -1,3 +1,5 @@
+//MANENO DE SWEET ALERT
+
 const swalFn = (msg1, msg2) => {
 let timerInterval
             Swal.fire({
@@ -21,11 +23,18 @@ let timerInterval
                       Swal.close();
                       modal.style.display = "none";
                       loadHtml();
-    
-    
-                      
-                      //formClean();
                   }, 1500);
             }
             })
 };
+
+const SwalErr = (msg1) => {
+
+    $('#saleInformation').text('')
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: msg1,
+
+    })
+}

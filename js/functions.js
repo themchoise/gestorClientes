@@ -1,4 +1,5 @@
 const    frmAddClient = document.querySelector('#frmAddClient')
+        ,frmnewProduct = document.querySelector('#frmnewProduct')
         ,frmSalesClient = document.querySelector('#frmSalesClient')
         ,cardFather = document.querySelector('#cardContainer')
         ,searchInput = document.querySelector('#mainSearch')
@@ -8,6 +9,7 @@ const    frmAddClient = document.querySelector('#frmAddClient')
         ,tableDashClient = $('#clientDashTable');
 
 
+        
 let fnStartForm = () => {
     $('#frmAddClient').append(`
      <div class="center">
@@ -43,6 +45,9 @@ let loadHtml = () => {
 
         dataLocalStorage = JSON.parse(dataLocalStorage)
         const { razonsocial, telefono, email, date, cuit, balance, monto, deuda } = dataLocalStorage
+
+        //GENERANDO LA TABLA HTML
+        
         tableDashClient.append(
          `<tr id='clientid_${key}' key=${key} class='animate__animated '>`
         
@@ -54,8 +59,7 @@ let loadHtml = () => {
         +'<td>'+'$ ' +balance+'</td>' 
         +'<td>'+'$ ' +deuda+'</td>' 
         +'<td>'+'$ ' +monto+'</td>' 
-        +'<td>'+'<i class="fas fa-edit pointer" title="editar"></i>'+'</td>' 
-        +'<td>'+`<i id='client_erase' class="fas fa-trash pointer  " title="borrar"></i>`+'</td>' 
+        //+'<td>'+`<i id='client_erase' class="fas fa-trash pointer  " title="borrar"></i>`+'</td>' 
         
 
         +'</tr>'
@@ -79,25 +83,14 @@ let loadHtml = () => {
     } );
   
 }
-
+//VACIO DEL FORMULARIO ADDCLIENT
 let formClean = () => {
     for (let i = 0; i < frmAddClient.children.length; i++) {
         const element = frmAddClient.children[i];
         element.value ? (element.value = '') : null
     }
 }
-
-let search = (findText) => {
-    
-    findText.toLowerCase();
-    let cards = document.getElementsByClassName('clientCard');
-    for (let i = 0; i < cards.length; i++) {
-        const element = cards[i];
-        let children = element.children[0].textContent;
-        children = children.toLowerCase();
-        children.includes(findText) ? cards[i].style.display = 'block' : cards[i].style.display = 'none';
-    }
-}
+//MANEJO DEL BUSCADOR
 
 $('#mainSearch').keyup(function(e){ 
     let searchText= e.target.value.toLowerCase()
@@ -139,7 +132,7 @@ const removeItem = (key) => {
 }
 
 
-
+//ESCONDER OTROS FORMULARIOS <> DEL ARGUMENTO
 const hideAnotherForms = (FormTrue) => {
 
     let existingForms = document.getElementsByTagName('form');
@@ -157,3 +150,19 @@ const hideAnotherForms = (FormTrue) => {
     }
 
 }
+//OCULTO DIV DE PRODUCTOS Y MUESTRO EL DIV DE CLIENTES
+hideAnother = () => {
+
+    $('#dibsub2').fadeOut("fast")
+    $('#dibsub1').fadeIn("fast")
+
+}
+
+//Inicio de la APP
+const startApp = () => {
+    
+    fnStartForm();
+    fnStartFormSales();
+    loadHtml();
+    btnDashBoard.onclick = () => { loadHtml() };   
+};

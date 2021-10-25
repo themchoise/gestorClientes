@@ -2,7 +2,8 @@ body {
     margin: 0;
     font-family: "Lato", sans-serif;
     background-color:#152028;
-    color: white
+    color: white;
+   
   }
 
   label{
@@ -12,12 +13,14 @@ body {
  
 
   h1{
+    width: auto;
       position: sticky;
-      border: solid 0.5px white;
+      font-family: 'Roboto', sans-serif;
       padding:1px;
+      font-weight:bolder;
       width: auto;
-      text-align: center;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      text-align: left;
+      
       
   }
 
@@ -60,15 +63,23 @@ body {
   }
 
   .searchBar{
-      width: 30%;
-      height: 20%;
-      background-color: #435969 ;
-      font-size: medium;
+      width: 150px;
+      height: 40px;
+      background-color: #294599 ;
+      font-size: large;
       color: white;
-      border: solid 2px #294599;
+      border: none;
+     
+      text-indent: 20px;
+      
   }::placeholder {
     color: white;
     font-size: 13px;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    margin-left: 15px;
+    text-indent: 20px;
   }
 
   .btnSearch{

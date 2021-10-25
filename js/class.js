@@ -1,16 +1,17 @@
 let ultimoIDStorage = 0
-
 let date = new Date();
 let year = date.getFullYear();
 let month = date.getMonth() + 1;
 let day = date.getDate();
 
+//FECHA EN FORMATO DE SALIDA AAAA-MM-DD
 let dateConstructor = (year, month, day) => {
     let dateResult = `${day}-${month}-${year}`
     
     return dateResult
 }
 
+//VERIFICO EL ULTIMO ID EXISTENTE 
 for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     if (key > ultimoIDStorage) {
@@ -18,7 +19,7 @@ for (let i = 0; i < localStorage.length; i++) {
     }
 }
 
-
+//CLASE QUE REGISTRA AL CLIENTE
 class Cliente {
 
     static contadorCliente = ultimoIDStorage;
@@ -42,7 +43,7 @@ class Cliente {
 
 }
 
-
+//CLASE QUE REGISTRA LA VENTA
 class SalesRegister {
 
     constructor(saleid, company,  product, amount, price) {
